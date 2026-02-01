@@ -1,0 +1,17 @@
+{
+  "name": "bmad-utility-skills",
+  "version": "1.0.0",
+  "description": "Utility skills for BMad Method contributors - issue triage, changelog drafting, and release automation",
+  "author": {
+    "name": "bmad-code-org"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bmad-code-org/bmad-utility-skills",
+  "repository": "https://github.com/bmad-code-org/bmad-utility-skills",
+  "keywords": ["bmad", "github", "triage", "changelog", "release", "npm"],
+  "skills": [
+    "skills/gh-triage",
+    "skills/draft-changelog",
+    "skills/release-bmad-module"
+  ]
+}
