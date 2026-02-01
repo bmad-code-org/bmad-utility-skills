@@ -1,7 +1,7 @@
 {
   "name": "bmad-utility-skills",
   "version": "1.0.0",
-  "description": "Utility skills for BMad Method contributors - issue triage, changelog drafting, and release automation",
+  "description": "Utility skills for BMad Method contributors.",
   "author": {
     "name": "bmad-code-org"
   },
