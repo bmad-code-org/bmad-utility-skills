@@ -1,133 +1,39 @@
-# BMad Utility Skills Plugin
+# BMad Utility Skills
 
-Utility skills for BMad Method contributors - issue triage, changelog drafting, and release automation.
+Open source utility skills for the BMad Code team — PR reviews, issue triage, changelog drafting, release automation, and more.
 
-## Quick Start
+## Install (Claude Code)
 
-```bash
-# From any BMad project directory
-claude plugin marketplace add bmad-code-org/bmad-plugins-marketplace
-claude plugin install --scope project bmad-utility-skills@bmad-plugins
-```
+1. Add the marketplace:
+   ```
+   /plugin marketplace add https://github.com/bmad-code-org/bmad-utility-skills
+   ```
+2. Run `/plugin`, select **bmad-utility-skills**, and enable it.
+3. Reload plugins (`/reload-plugins`) or restart Claude Code.
 
-Then **restart Claude Code**.
+## Install (Other Tools)
 
-## Installation: User vs Project Scope
+Copy the skill folders you want from `skills/` into `~/.{tool}/skills/` or specifically in your project folder.
 
-Plugins can be installed at two scopes - choose based on your needs:
+## Contributing
 
-### Project Scope (Recommended for Teams)
+Add some cool skills!
 
-Installs the plugin for **this project only**. The configuration is saved to `.claude/settings.json` and can be committed to git.
+## Skills
 
-```bash
-claude plugin install --scope project bmad-utility-skills@bmad-plugins
-```
-
-**Use this when:**
-- Working on a team project
-- You want the plugin to be available to all contributors
-- You want to commit the plugin configuration to version control
-
-**After installation, commit these files:**
-```bash
-git add .claude/settings.json
-git commit -m "Add bmad-utility-skills plugin"
-```
-
-### User Scope
-
-Installs the plugin **globally for all your projects**. Configuration is saved to `~/.claude/settings.json`.
-
-```bash
-claude plugin install --scope user bmad-utility-skills@bmad-plugins
-```
-
-**Use this when:**
-- You want the plugin available across all your personal projects
-- You're the only developer working on your projects
-
-**Note:** This is the default if `--scope` is omitted.
-
-## Available Skills
-
-After restarting Claude Code, the following skills are available:
-
-| Skill | Command | Description |
-|-------|---------|-------------|
-| GitHub Issue Triage | `bmad-utility-skills:gh-triage` | AI-powered issue triage with deep analysis and clustering |
-| Draft Changelog | `bmad-utility-skills:draft-changelog <project>` | Generate changelog drafts for BMad projects |
-| Release BMad Module | `bmad-utility-skills:release-bmad-module <project>` | Automate BMad module releases |
-
-## Usage Examples
-
-```bash
-# Triage GitHub issues in the current repo
-bmad-utility-skills:gh-triage
-
-# Draft changelog for bmad-builder
-bmad-utility-skills:draft-changelog bmad-builder
-
-# Draft changelog for cis
-bmad-utility-skills:draft-changelog cis
-
-# Release a new version of game-dev-studio
-bmad-utility-skills:release-bmad-module game-dev-studio
-```
-
-## Setup for BMad Module Maintainers
-
-To automatically enable this plugin for all contributors, add to your module's `.claude/settings.json`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "bmad-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "bmad-code-org/bmad-plugins-marketplace"
-      }
-    }
-  },
-  "enabledPlugins": {
-    "bmad-utility-skills@bmad-plugins": true
-  }
-}
-```
-
-Commit this to your repository and contributors will be prompted to install the plugin when they open the project.
-
-## Requirements
-
-- Claude Code 1.0.33 or later
-- `gh` GitHub CLI (for gh-triage) - install from https://cli.github.com/
-- `npm` (for release-bmad-module)
-- Git repository
-
-## Troubleshooting
-
-**Plugin not found?**
-```bash
-# Add the marketplace first
-claude plugin marketplace add bmad-code-org/bmad-plugins-marketplace
-
-# Then install
-claude plugin install --scope project bmad-utility-skills@bmad-plugins
-```
-
-**Skills not showing up?**
-- Restart Claude Code after installing
-- Check the plugin is installed: `claude plugin list`
-
-**Want to remove the plugin?**
-```bash
-claude plugin uninstall bmad-utility-skills@bmad-plugins
-```
+| Skill | Description |
+|-------|-------------|
+| `bmad-os-gh-triage` | AI-powered GitHub issue triage |
+| `bmad-os-review-pr` | Dual-layer adversarial PR review |
+| `bmad-os-findings-triage` | HITL triage of review findings |
+| `bmad-os-draft-changelog` | Generate changelog from recent changes |
+| `bmad-os-changelog-social` | Social media posts from changelog |
+| `bmad-os-release-module` | Version bump, tag, publish, GitHub release |
+| `bmad-os-review-prompt` | Audit LLM prompts for failure modes |
+| `bmad-os-audit-file-refs` | Check file-reference conventions |
+| `bmad-os-diataxis-style-fix` | Fix docs to Diataxis style |
+| `bmad-os-root-cause-analysis` | Root cause analysis |
 
 ## License
 
 MIT
-
-## Author
-
-bmad-code-org
