@@ -42,10 +42,6 @@ Publish the package.
 
 Create release with changelog notes using `gh release create`.
 
-### Step 10: Confirm Completion
-
-Show npm and GitHub links.
-
 ## Error Handling
 
 Stop immediately on any step failure. Inform user and suggest fix.
