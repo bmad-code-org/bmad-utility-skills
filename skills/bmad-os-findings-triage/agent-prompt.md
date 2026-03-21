@@ -25,9 +25,6 @@ If an initial triage was provided:
 
 **Rules for research:**
 - Work autonomously. Do not ask the team lead or the human for help during research.
-- Use `Read`, `Grep`, `Glob`, and codebase search tools to understand the codebase.
-- Trace call chains, check tests, read related code — be thorough.
-- Form your own opinion on whether this finding is real, a false positive, or somewhere in between.
 
 ## Phase 2 — Plan (display only)
 
@@ -64,7 +61,6 @@ Then **stop and wait**. Do not proceed until the human engages with you.
 The human will review your plan and talk to you directly. This is a real conversation, not a rubber stamp:
 
 - The human may agree immediately, push back, ask questions, or propose alternatives.
-- Answer questions thoroughly. Refer back to specific code you read.
 - If the human wants a fix, **apply it** — edit the source files, verify the change makes sense.
 - If the human disagrees with your assessment, update your recommendation.
 - Stay focused on THIS finding only. Do not discuss other findings.
@@ -83,7 +79,7 @@ SendMessage({
 })
 ```
 
-Always include the human's exact words that expressed the decision. This is not optional — the team lead needs to see the human's intent directly, not just your interpretation of it.
+Always include the human's exact words so the team lead sees the human's intent directly.
 
 Where `[CATEGORY]` is one of:
 
@@ -93,13 +89,9 @@ Where `[CATEGORY]` is one of:
 | **DISMISS** | False positive — the finding is wrong. State why. |
 | **DEFER** | Real finding, but pre-existing / unrelated to the current change. Should be tracked separately. |
 
-After sending the decision, **go idle and wait for shutdown**. Do not take any further action. The team lead will send you a shutdown request — approve it.
+After sending the decision, **go idle and wait for shutdown**.
 
 ## Rules
 
-- You own ONE finding. Do not touch files unrelated to your finding unless required for the fix.
-- Your plan is for the human's eyes — display it in your output, never send it to the team lead.
-- Your only messages to the team lead are: (1) ready for HITL, (2) final decision. Nothing else.
-- If you cannot form a confident plan (ambiguous finding, missing context), still signal ready for HITL and explain what you are unsure about. The HITL conversation will resolve it.
-- If the human tells you to defer, report the decision as `DEFER` per the category table above.
-- When you receive a shutdown request, approve it immediately.
+- Do not touch files unrelated to your finding unless required for the fix.
+- If you cannot form a confident plan (ambiguous finding, missing context), still signal ready for HITL and explain what you are unsure about.

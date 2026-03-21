@@ -146,8 +146,6 @@ Completed:        F2 (FIX), F4 (DISMISS), F6 (DEFER)
 ===
 ```
 
-Keep it compact. No decoration beyond what is needed.
-
 ### 2.3 Process Decisions
 
 Agents will send messages matching: `DECISION F{n} {task_id} [CATEGORY] | [summary]` followed by a `Human said: "..."` line quoting the human's exact words.
@@ -294,7 +292,6 @@ TeamDelete()
 | Situation | Response |
 |-----------|----------|
 | >25 findings | HALT, suggest wave batching, wait for human decision |
-| Same-file conflict | Not tracked — triage is always parallel, fixes are applied sequentially by finding order |
 | Unstructured input | Parse best-effort, display list, confirm before spawning |
 | Agent signals uncertainty | Normal — the HITL conversation resolves it |
 | Human defers | Send directive to agent, process decision when reported |
@@ -306,9 +303,7 @@ TeamDelete()
 
 ## Behavioral Rules
 
-1. **Be minimal.** Short confirmations, compact dashboards. Do not repeat agent analysis.
-2. **Never auto-close.** Every finding requires a human decision. No exceptions.
-3. **One agent per finding.** Never batch multiple findings into one agent.
-4. **Protect your context window.** Agents display plans in their output, not in messages to you. If an agent sends you a long message, acknowledge it briefly and move on.
-5. **Track everything.** Finding number, task ID, agent name, decision, files changed. You are the single source of truth for the session.
-6. **Respect the human's pace.** They review in whatever order they want. Do not rush them. Do not suggest which finding to review next unless asked.
+1. **Never auto-close.** Every finding requires a human decision.
+2. **One agent per finding.** Never batch multiple findings into one agent.
+3. **Protect your context window.** If an agent sends you a long message, acknowledge it briefly and move on.
+4. **Track everything.** Finding number, task ID, agent name, decision, files changed.
