@@ -49,12 +49,6 @@ HALT. Tell the human:
 
 Wait for the human to decide. If batching, record wave assignments (Wave 1: F1-F20, Wave 2: F21-Fn).
 
-**Same-file conflicts:**
-Scan all findings for overlapping file paths. If two or more findings reference the same file, warn — enumerating ALL findings that share each file:
-> "Findings {Fa}, {Fb}, {Fc}, ... all reference `{file}`. Concurrent edits may conflict. Serialize these agents (process one before the other) or proceed in parallel?"
-
-Wait for the human to decide. If the human chooses to serialize: do not spawn the second (and subsequent) agents for that file until the first has reported its decision and been shut down. Track serialization pairs and spawn the held agent after its predecessor completes.
-
 ### 1.4 Create Tasks
 
 For each finding, create a task:
@@ -120,7 +114,7 @@ Scorecard:
 - Pending: {N}
 - Ready for review: 0
 - Completed: 0
-- Decisions: FIX=0  WONTFIX=0  DISMISS=0  REJECT=0  SKIP=0  DEFER=0
+- Decisions: FIX=0  DISMISS=0  DEFER=0
 ```
 
 ---
@@ -146,7 +140,7 @@ When the human asks for status (or periodically when useful), print:
 === Triage Status ===
 Ready for review: F3, F7, F11
 Still analyzing:  F1, F5, F9
-Completed:        F2 (FIX), F4 (DISMISS), F6 (REJECT)
+Completed:        F2 (FIX), F4 (DISMISS), F6 (DEFER)
                   {completed}/{total} done
 ===
 ```
@@ -177,32 +171,32 @@ When received:
    ```
 4. **Print confirmation:** `F{n} closed: {CATEGORY}. {remaining} remaining.`
 
-### 2.4 Human-Initiated Skip/Defer
+### 2.4 Human-Initiated Defer
 
-If the human wants to skip or defer a finding without full engagement:
+If the human wants to defer a finding without full engagement:
 
-1. Send the decision to the agent, replacing `{CATEGORY}` with the human's chosen category (`SKIP` or `DEFER`):
+1. Send the decision to the agent:
    ```
    SendMessage({
      type: "message",
      recipient: "f{n}-agent",
-     content: "Human decision: {CATEGORY} this finding. Report {CATEGORY} as your decision and go idle.",
-     summary: "F{n} {CATEGORY} directive"
+     content: "Human decision: DEFER this finding. Report DEFER as your decision and go idle.",
+     summary: "F{n} DEFER directive"
    })
    ```
-2. Wait for the agent to report the decision back (it will send `DECISION F{n} ... {CATEGORY}`).
+2. Wait for the agent to report the decision back (it will send `DECISION F{n} ... DEFER`).
 3. Process as a normal decision (2.3).
 
 If the agent has not yet signaled ready, the message will queue and be processed when it finishes research.
 
-If the human requests skip/defer for a finding where an HITL conversation is already underway, send the directive to the agent. The agent should end the current conversation and report the directive category as its decision.
+If the human requests defer for a finding where an HITL conversation is already underway, send the directive to the agent. The agent should end the current conversation and report DEFER as its decision.
 
 ### 2.5 Wave Batching (if >25 findings)
 
 When the current wave is complete (all findings resolved):
 1. Print wave summary.
 2. Ask: `"Wave {W} complete. Spawn wave {W+1} ({count} findings)? (y/n)"`
-3. If yes, before spawning the next wave, re-run the same-file conflict check (1.3) for the new wave's findings, including against any still-open findings from previous waves. Then repeat Phase 1.4 (task creation) and 1.6 (agent spawning) only. Do NOT call TeamCreate again — the team already exists.
+3. If yes, repeat Phase 1.4 (task creation) and 1.6 (agent spawning) only. Do NOT call TeamCreate again — the team already exists.
 4. If the human declines, treat unspawned findings as not processed. Proceed to Phase 3 wrap-up. Note the count of unprocessed findings in the final scorecard.
 5. Carry the scorecard forward across waves.
 
@@ -220,10 +214,7 @@ When all findings across all waves are resolved:
 Total findings: {N}
 
   FIX:      {count}
-  WONTFIX:  {count}
   DISMISS:  {count}
-  REJECT:   {count}
-  SKIP:     {count}
   DEFER:    {count}
 
 Files changed:
@@ -271,10 +262,10 @@ TeamDelete()
 | Situation | Response |
 |-----------|----------|
 | >25 findings | HALT, suggest wave batching, wait for human decision |
-| Same-file conflict | Warn, suggest serializing, wait for human decision |
+| Same-file conflict | Not tracked — triage is always parallel, fixes are applied sequentially by finding order |
 | Unstructured input | Parse best-effort, display list, confirm before spawning |
 | Agent signals uncertainty | Normal — the HITL conversation resolves it |
-| Human skips/defers | Send directive to agent, process decision when reported |
+| Human defers | Send directive to agent, process decision when reported |
 | Agent goes idle unexpectedly | Send a message to check status; agents stay alive until explicit shutdown |
 | Human asks to re-open a completed finding | Not supported in this session; suggest re-running triage on that finding |
 | All agents spawned but none ready yet | Tell the human agents are still analyzing; no action needed |

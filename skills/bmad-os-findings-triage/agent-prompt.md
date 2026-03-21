@@ -31,14 +31,16 @@ If an initial triage was provided:
 
 ## Phase 2 — Plan (display only)
 
-Prepare a plan for dealing with this finding. The plan MUST cover:
+Your goal is to plan how to fix this finding. While working toward a fix, you may arrive at one of two early exits:
 
-1. **Assessment** — Is this finding real? What is the actual risk or impact?
-2. **Recommendation** — One of: fix it, accept the risk (wontfix), dismiss as not a real issue, or reject as a false positive.
-3. **If recommending a fix:** Describe the specific changes — which files, what modifications, why this approach.
-4. **If recommending against fixing:** Explain the reasoning — existing mitigations, acceptable risk, false positive rationale.
+1. **DISMISS** — You determine the finding is a false positive. Stop planning the fix and explain why the finding is wrong.
+2. **DEFER** — You determine the finding is low/medium severity AND pre-existing (not introduced by the current change). Stop planning the fix and note that it pre-dates the change.
 
-**Display the plan in your output.** Write it clearly so the human can read it directly. Follow the plan with a 2-5 line summary of the finding itself.
+If neither early exit applies, produce a **FIX plan** — the concrete changes needed to resolve the finding.
+
+**Display your output in this order:**
+1. If FIX: the plan for how to fix it. If DISMISS or DEFER: the reasoning that led to this conclusion.
+2. A 2-5 line summary of the finding.
 
 **CRITICAL: Do NOT send your plan or analysis to the team lead.** The team lead does not need your plan — the human reads it from your output stream. Sending full plans to the team lead wastes its context window.
 
@@ -66,7 +68,7 @@ The human will review your plan and talk to you directly. This is a real convers
 - If the human wants a fix, **apply it** — edit the source files, verify the change makes sense.
 - If the human disagrees with your assessment, update your recommendation.
 - Stay focused on THIS finding only. Do not discuss other findings.
-- **Do not send a decision until the human explicitly states a verdict.** Acknowledging your plan is NOT a decision. Wait for clear direction like "fix it", "dismiss", "reject", "skip", etc.
+- **Do not send a decision until the human explicitly states a verdict.** Acknowledging your plan is NOT a decision. Wait for clear direction like "fix it", "dismiss", "defer", etc.
 
 ## Phase 5 — Report Decision
 
@@ -85,12 +87,9 @@ Where `[CATEGORY]` is one of:
 
 | Category | Meaning |
 |----------|---------|
-| **SKIP** | Human chose to skip without full review. |
-| **DEFER** | Human chose to defer to a later session. |
 | **FIX** | Change applied. List the file paths changed and what each change was (use a parseable format: `files: path1, path2`). |
-| **WONTFIX** | Real finding, not worth fixing now. State why. |
-| **DISMISS** | Not a real finding or mitigated by existing design. State the mitigation. |
-| **REJECT** | False positive from the reviewer. State why it is wrong. |
+| **DISMISS** | False positive — the finding is wrong. State why. |
+| **DEFER** | Real finding, but pre-existing / unrelated to the current change. Should be tracked separately. |
 
 After sending the decision, **go idle and wait for shutdown**. Do not take any further action. The team lead will send you a shutdown request — approve it.
 
@@ -100,5 +99,5 @@ After sending the decision, **go idle and wait for shutdown**. Do not take any f
 - Your plan is for the human's eyes — display it in your output, never send it to the team lead.
 - Your only messages to the team lead are: (1) ready for HITL, (2) final decision. Nothing else.
 - If you cannot form a confident plan (ambiguous finding, missing context), still signal ready for HITL and explain what you are unsure about. The HITL conversation will resolve it.
-- If the human tells you to skip or defer, report the decision as `SKIP` or `DEFER` per the category table above.
+- If the human tells you to defer, report the decision as `DEFER` per the category table above.
 - When you receive a shutdown request, approve it immediately.
