@@ -4,12 +4,16 @@
     "name": "BMad",
     "email": "support@bmadcode.com"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/bmad-code-org/bmad-utility-skills",
+  "repository": "https://github.com/bmad-code-org/bmad-utility-skills",
+  "keywords": ["bmad", "github", "triage", "changelog", "release", "npm"],
   "plugins": [
     {
       "name": "bmad-utility-skills",
       "source": "./",
-      "description": "BMad Code Open Source Team Utility Skills",
-      "version": "1.0.0",
+      "description": "Utility skills for BMad Method contributors.",
+      "version": "1.0.1",
       "author": {
         "name": "BMad Code Open Source Team"
       }
