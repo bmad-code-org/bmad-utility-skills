@@ -13,7 +13,7 @@
       "name": "bmad-utility-skills",
       "source": "./",
       "description": "Utility skills for BMad Method contributors.",
-      "version": "1.0.1",
+      "version": "1.2.0",
       "author": {
         "name": "BMad Code Open Source Team"
       }
