@@ -1,5 +1,8 @@
 # BMad Utility Skills
 
+[![Python Version](https://img.shields.io/badge/python-%3E%3D3.10-blue?logo=python&logoColor=white)](https://www.python.org)
+[![uv](https://img.shields.io/badge/uv-package%20manager-blueviolet?logo=uv)](https://docs.astral.sh/uv/)
+
 Open source utility skills for the BMad Code team — PR reviews, issue triage, changelog drafting, release automation, and more.
 
 ## Install (Claude Code)
