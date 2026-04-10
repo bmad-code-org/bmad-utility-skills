@@ -1,53 +1,34 @@
-🚀 **BMad v6.0.0-alpha.23 RELEASED!**
+🚀 **bmad-utility-skills v1.2.0 RELEASED!**
 
-🎉 Huge update - almost beta!
+🎉 Big quality-of-life update for the maintainer toolkit!
 
-🪟 **WINDOWS INSTALLER FIXED** - Menu arrows issue should be fixed! CRLF & ESM problems resolved.
+🪥 **PR REVIEWS GOT SMARTER** - Raven's Verdict now deduplicates across review layers
 
-🎯 **PRD WORKFLOWS IMPROVED**
-• Validation & Edit workflows added!
-• PRD Cohesion check ensures document flows beautifully
-• Coming soon: Use of subprocess optimization (context saved!)
-• Coming soon: Final format polish step in all workflows - Human consumption OR hyper-optimized LLM condensed initially!
+🎯 **Review & Analysis**
+• PR review merges findings from cynical + edge-case layers, no more duplicate noise
+• Root cause analysis accepts PR numbers directly, not just commit SHAs
+• Findings triage runs parallel agents for faster HITL processing
 
-🔧 **WORKFLOW CREATOR & VALIDATOR**
-• Subprocess support for advanced optimization
-• Path violation checks ensure integrity
-• Beyond error checking - offers optimization & flow suggestions!
+🔧 **Changelog & Release**
+• Draft changelog reads marketplace.json for plugin-aware versioning
+• Social posts now generate scheduled tweet series instead of one mega-post
+• New Facebook article format for deeper engagement
 
-📚 **NEW DOCS SITE** - docs.bmad-method.org
-• Diataxis framework: Tutorials, How-To, Explanations, References
-• Current docs still being revised
-• Tutorials, blogs & explainers coming soon!
+📚 **Docs**
+• Translation review catches injected/off-topic content vs English source
+• Diataxis skill handles create, update, and refine flows
 
-💡 **BRAINSTORMING REVOLUTION**
-• 100+ idea goal (quantity-first!)
-• Anti-bias protocol (pivot every 10 ideas)
-• Chain-of-thought + simulated temperature prompts
-• Coming soon: SubProcessing (on-the-fly sub agents)
+🙏 **CONTRIBUTORS**
+@rdsimp (3 PRs!), @communitymember (2 PRs!)
+@dependabot 🛡️
 
-🌟 **COMMUNITY PHILOSOPHY**
-• Everything is FREE - No paywalls, no gated content
-• Knowledge shared, not sold
-• No premium tiers - full access to our ideas
-
-📊 **27 commits | 217 links converted | 42+ docs created**
-
-🙏 **17 Community PR Authors in this release!**
-@lum (6 PRs!), @q00 (3 PRs!), @phil (2 PRs!)
-@mike, @alex, @ramiz, @sjennings + dependabot 🛡️
-Community-driven FTW! 🌟
-
-📦 **INSTALL ALPHA:**
-`npx bmad-method install`
+📦 **INSTALL:**
+Add to your Claude Code settings:
+`"bmad-code-org/bmad-utility-skills"`
 
 ⭐ **SUPPORT US:**
-🌟 GitHub: github.com/bmad-code-org/BMAD-METHOD/
+🌟 GitHub: github.com/bmad-code-org/bmad-utility-skills
 📺 YouTube: youtube.com/@BMadCode
+☕ Donate: buymeacoffee.com/bmad
 
-🎤 **SPEAKING & MEDIA**
-Available for conferences, podcasts, media appearances!
-Topics: AI-Native Organizations (Any Industry), BMad Method
-DM on Discord for inquiries!
-
-🔥 **V6 Beta is DAYS away!** January 22nd ETA - new features such as xyz and abc bug fixes!
+🔥 **Next up: prompt audit tooling and release automation improvements!**
