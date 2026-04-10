@@ -1,49 +1,22 @@
-🚀 **Announcing BMad Method v6.0.0 Beta - AI-Native Agile Development Framework**
+# LinkedIn Example - bmad-utility-skills v1.2.0
 
-I'm excited to share that BMad Method, the open-source AI-driven agile development framework, is entering Beta! After 27 alpha releases and countless community contributions, we're approaching a major milestone.
+Announcing bmad-utility-skills v1.2.0 - an open-source collection of agentic skills for software project maintainers.
 
-**What's New in v6.0.0-alpha.23**
+This release focuses on reducing friction in the release and review workflow:
 
-🪟 **Windows Compatibility Fixed**
-We've resolved the installer issues that affected Windows users. The menu arrows problem, CRLF handling, and ESM compatibility are all resolved.
+**Smarter Code Reviews**
+Our PR review tool now runs multiple analysis layers in parallel and automatically deduplicates findings. Teams get the same depth of review with significantly less noise to triage.
 
-🎯 **Enhanced PRD Workflows**
-Our Product Requirements Document workflows now include validation and editing capabilities, with a new cohesion check that ensures your documents flow beautifully. Subprocess optimization is coming soon to save even more context.
+**Plugin-Aware Releases**
+For projects that ship multiple plugins from a single repository, the changelog and release tooling now reads marketplace metadata to handle per-plugin versioning natively. No more manual version tracking across plugins.
 
-🔧 **Workflow Creator & Validator**
-New tools for creating and validating workflows with subprocess support, path violation checks, and optimization suggestions that go beyond simple error checking.
+**Improved Root Cause Analysis**
+The RCA tool now accepts PR numbers directly, making it easier to trace a fix back to the underlying cause without hunting for commit SHAs.
 
-📚 **New Documentation Platform**
-We've launched docs.bmad-method.org using the Diataxis framework - providing clear separation between tutorials, how-to guides, explanations, and references. Our documentation is being continuously revised and expanded.
+Everything in the BMad ecosystem is free and open source. No paywalls, no gated content, no premium tiers.
 
-💡 **Brainstorming Revolution**
-Our brainstorming workflows now use research-backed techniques: 100+ idea goals, anti-bias protocols, chain-of-thought reasoning, and simulated temperature prompts for higher divergence.
+Get started: github.com/bmad-code-org/bmad-utility-skills
 
-**Our Philosophy**
+If you're building with AI-assisted development workflows, I'd love to hear what tools and patterns are working for your team.
 
-Everything in BMad Method is FREE. No paywalls, no gated content, no premium tiers. We believe knowledge should be shared, not sold. This is community-driven development at its finest.
-
-**The Stats**
-- 27 commits in this release
-- 217 documentation links converted
-- 42+ new documents created
-- 17 community PR authors contributed
-
-**Get Started**
-
-```
-npx bmad-method@alpha install
-```
-
-**Learn More**
-- GitHub: github.com/bmad-code-org/BMAD-METHOD
-- YouTube: youtube.com/@BMadCode
-- Docs: docs.bmad-method.org
-
-**What's Next?**
-
-Beta is just days away with an ETA of January 22nd. We're also available for conferences, podcasts, and media appearances to discuss AI-Native Organizations and the BMad Method.
-
-Have you tried BMad Method yet? I'd love to hear about your experience in the comments!
-
-#AI #SoftwareDevelopment #Agile #OpenSource #DevTools #LLM #AgentEngineering
+#AI #OpenSource #SoftwareDevelopment #DevTools #Agile #AgentEngineering

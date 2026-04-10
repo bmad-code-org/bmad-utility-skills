@@ -1,55 +1,47 @@
-🚀 **BMad v6.0.0-alpha.23 RELEASED!**
+# Twitter/X Example - bmad-utility-skills v1.2.0
 
-Huge update - we're almost at Beta! 🎉
+## Tweet 1 - Release Announcement (Day 1)
 
-🪟 **WINDOWS INSTALLER FIXED** - Menu arrows issue should be fixed! CRLF & ESM problems resolved.
+🚀 bmad-utility-skills v1.2.0 is out!
 
-🎯 **PRD WORKFLOWS IMPROVED**
-• Validation & Edit workflows added!
-• PRD Cohesion check ensures document flows beautifully
-• Coming soon: Subprocess optimization (context saved!)
-• Coming soon: Final format polish step in all workflows
+Smarter PR reviews, plugin-aware changelogs, and a whole new social posting workflow.
 
-🔧 **WORKFLOW CREATOR & VALIDATOR**
-• Subprocess support for advanced optimization
-• Path violation checks ensure integrity
-• Beyond error checking - offers optimization & flow suggestions!
+github.com/bmad-code-org/bmad-utility-skills
 
-📚 **NEW DOCS SITE** - docs.bmad-method.org
-• Diataxis framework: Tutorials, How-To, Explanations, References
-• Current docs still being revised
-• Tutorials, blogs & explainers coming soon!
+#OpenSource #DevTools #AI
 
-💡 **BRAINSTORMING REVOLUTION**
-• 100+ idea goal (quantity-first!)
-• Anti-bias protocol (pivot every 10 ideas)
-• Chain-of-thought + simulated temperature prompts
-• Coming soon: SubProcessing (on-the-fly sub agents)
+## Tweet 2 - Feature Spotlight (Day 2)
 
-🌟 **COMMUNITY PHILOSOPHY**
-• Everything is FREE - No paywalls, no gated content
-• Knowledge shared, not sold
-• No premium tiers - full access to our ideas
+Tired of duplicate findings in code reviews?
 
-📊 **27 commits | 217 links converted | 42+ docs created**
+Raven's Verdict now runs cynical + edge-case review in parallel, then deduplicates and merges findings automatically.
 
-🙏 **17 Community PR Authors in this release!**
-@lum (6 PRs!), @q00 (3 PRs!), @phil (2 PRs!)
-@mike, @alex, @ramiz, @sjennings + dependabot 🛡️
-Community-driven FTW! 🌟
+Less noise, more signal.
 
-📦 **INSTALL ALPHA:**
-`npx bmad-method install`
+#CodeReview #DevTools
 
-⭐ **SUPPORT US:**
-🌟 GitHub: github.com/bmad-code-org/BMAD-METHOD/
-📺 YouTube: youtube.com/@BMadCode
+## Tweet 3 - Feature Spotlight (Day 3)
 
-🎤 **SPEAKING & MEDIA**
-Available for conferences, podcasts, media appearances!
-Topics: AI-Native Organizations (Any Industry), BMad Method
-DM on Discord for inquiries!
+Your repo has 3 plugins, each with its own version. Which changelog entry are you writing?
 
-🔥 **V6 Beta is DAYS away!** January 22nd ETA!
+Our draft-changelog skill now reads marketplace.json and handles multi-plugin repos natively.
 
-#AI #DevTools #Agile #OpenSource #LLM #AgentEngineering
+#OpenSource #DeveloperExperience
+
+## Tweet 4 - Feature Spotlight (Day 4)
+
+Root cause analysis shouldn't start with "find the commit SHA."
+
+Now just pass a PR number. The tool traces the fix back to the cause.
+
+#DevTools #AI #Debugging
+
+## Tweet 5 - Philosophy/CTA (Day 5)
+
+Every tool in bmad-utility-skills is free and open source. No paywalls, no gated features.
+
+If it helps your workflow, star the repo and share it with your team.
+
+github.com/bmad-code-org/bmad-utility-skills
+
+#OpenSource #BuildInPublic
