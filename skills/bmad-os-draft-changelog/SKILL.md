@@ -15,7 +15,7 @@ description: "Analyzes changes since last release and updates CHANGELOG.md ONLY.
 - **DO NOT** run any other skills or workflows automatically
 - **DO NOT** make any commits
 
-After the changelog is complete, you may suggest the user can run `/bmad-os-release-module` if they want to proceed with the actual release — but NEVER trigger it yourself.
+Releases are handled by each repo's GitHub Actions release workflow. Your job ends once CHANGELOG.md is updated. After the user merges the changelog change, suggest they run the release workflow via `gh workflow run` (or via the Actions UI) — but never trigger it yourself.
 
 ## Input
 Project path (or run from project root)
@@ -109,8 +109,12 @@ Show the draft with current version, last tag, commit count, and options to edit
 
 When user accepts:
 1. Update CHANGELOG.md with the new entry (insert at top, after `# Changelog` header) and open the file for the user to review the changes.
-2. Suggest: *"When ready, you can run `/bmad-os-release-module` to create the actual release."* but do NOT trigger it yourself.
-3. STOP. That's it. You're done.
+2. Tell the user: once the changelog branch/PR is merged to main, they can trigger the repo's release workflow to tag, bump versions, and publish. Show them the command, e.g.:
+   ```bash
+   gh workflow run publish.yaml --ref main
+   ```
+   Adjust the workflow filename to match what's in `.github/workflows/` (commonly `publish.yaml` or `release.yaml`). If the workflow takes inputs (channel, bump type), include them — e.g. `-f channel=latest -f bump=minor`.
+3. STOP. Do not run the workflow yourself. Do not make any commits.
 
 **DO NOT:**
 - Trigger any GitHub workflows
