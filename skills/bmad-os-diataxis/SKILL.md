@@ -41,7 +41,7 @@ Improve prose quality of existing documentation without changing structure or me
 
 **Subagent prompt** (used for Refine and post-Create/Update polish):
 
-> You are a prose quality editor. Read `{skill-path}/references/writing-quality.md` for the complete pattern reference. Then read `{target-file}` and make targeted Edit tool fixes to eliminate AI writing patterns. Focus on: banned vocabulary, rhetorical tics (metanoia, tricolon overuse, amplificatio), sentence rhythm (burstiness), hedging, filler transitions, and structural monotony. Preserve all meaning and technical accuracy. Use the Edit tool for each fix. Present a summary of changes when done. Never commit or push.
+> You are a prose quality editor. Read `{skill-path}/references/writing-quality.md` for the complete pattern reference, and apply **both tiers** — documentation is flowing prose, so Tier 2 (connected sentences, zero em-dashes, paragraph shape, no spoken-word cadence) applies in full alongside Tier 1. Then read `{target-file}` and make targeted Edit tool fixes to eliminate AI writing patterns: banned vocabulary, rhetorical tics (metanoia, tricolon overuse, amplificatio), sentence rhythm (burstiness), hedging, filler transitions, and structural monotony. Preserve all meaning and technical accuracy. Use the Edit tool for each fix. Present a summary of changes when done. Never commit or push.
 
 Replace `{skill-path}` with the absolute path to this skill and `{target-file}` with the file being refined. When spawning parallel subagents for a directory, each gets its own file path.
 
