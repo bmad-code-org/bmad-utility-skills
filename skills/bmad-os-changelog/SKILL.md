@@ -1,16 +1,17 @@
 ---
-name: bmad-os-draft-changelog
-description: "Analyzes changes since last release and updates CHANGELOG.md ONLY. Use when users requests 'update the changelog' or 'prepare changelog release notes'"
+name: bmad-os-changelog
+description: "Analyzes changes since last release and drafts them directly into the project's CHANGELOG.md. Use when users requests 'update the changelog' or 'prepare changelog release notes'"
 ---
 
-# Draft Changelog Execution
+# Changelog
 
 ## ⚠️ IMPORTANT - READ FIRST
 
-**This skill ONLY updates CHANGELOG.md. That is its entire purpose.**
+**This skill ONLY updates CHANGELOG.md. The changelog file IS the canvas — always write the draft into it. Never dump the proposed entry into the chat.**
 
-- **DO** update CHANGELOG.md with the new version entry
-- **DO** present the draft for user review before editing
+- **DO** write the new version entry directly into the project's CHANGELOG.md and open it for review
+- **DO** ask any clarifying questions first (version, which plugin, how to categorize an ambiguous change) — but the answer always lands in the file, not the chat
+- **DO NOT** paste the full proposed changelog into the chat instead of writing it to the file
 - **DO NOT** trigger any GitHub release workflows
 - **DO NOT** run any other skills or workflows automatically
 - **DO NOT** make any commits
@@ -102,13 +103,13 @@ Each plugin gets its own H2 section. Only include plugins that actually have cha
 - Group related changes
 - Clear, concise language
 - For breaking changes, clearly indicate impact
+- **Read `references/writing-quality.md` before composing.** Apply **Tier 1 (Universal AI tells)** to every bullet — banned vocabulary ("robust", "comprehensive", "leverage", "game-changing"), stakes inflation, "it's not X, it's Y". Tier 2 (prose mechanics) governs any flowing prose you write; the bullet entries themselves stay terse (Tier 2 exempts bullets).
 
-## Step 4: Present Draft & Update CHANGELOG.md
+## Step 4: Write the Draft into CHANGELOG.md
 
-Show the draft with current version, last tag, commit count, and options to edit/retry.
+Ask any clarifying questions first (version number, which plugin, how to categorize an ambiguous change). Once resolved, run a **writing-quality pass with a subagent** (Task tool, `subagent_type=general-purpose`): hand it the drafted entry and `references/writing-quality.md`, have it apply **Tier 1** — flag every Universal AI tell (banned vocab, stakes inflation, "it's not X, it's Y") — and return fixes, and apply them. Then write the entry — don't ask for approval of pasted-in-chat text:
 
-When user accepts:
-1. Update CHANGELOG.md with the new entry (insert at top, after `# Changelog` header) and open the file for the user to review the changes.
+1. Write the new entry directly into CHANGELOG.md (insert at top, after the `# Changelog` header) and open the file so the user reviews it **in the changelog itself**. The file is the canvas — do not paste the full entry into the chat. A one- or two-line summary of what you added ("Added v6.2.0 entry: 4 features, 1 breaking change") is all that belongs in the chat.
 2. Tell the user: once the changelog branch/PR is merged to main, they can trigger the repo's release workflow to tag, bump versions, and publish. Show them the command, e.g.:
    ```bash
    gh workflow run publish.yaml --ref main
@@ -117,6 +118,7 @@ When user accepts:
 3. STOP. Do not run the workflow yourself. Do not make any commits.
 
 **DO NOT:**
+- Paste the full proposed changelog into the chat instead of writing it to CHANGELOG.md
 - Trigger any GitHub workflows
 - Run any other skills
 - Make any commits

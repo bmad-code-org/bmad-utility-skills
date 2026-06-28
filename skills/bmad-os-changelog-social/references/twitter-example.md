@@ -24,7 +24,7 @@ Less noise, more signal.
 
 Your repo has 3 plugins, each with its own version. Which changelog entry are you writing?
 
-Our draft-changelog skill now reads marketplace.json and handles multi-plugin repos natively.
+Our changelog skill now reads marketplace.json and handles multi-plugin repos natively.
 
 #OpenSource #DeveloperExperience
 

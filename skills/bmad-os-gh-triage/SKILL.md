@@ -22,7 +22,13 @@ Split issues into batches of ~10 issues each for parallel analysis.
 For EACH batch, use the Task tool with `subagent_type=general-purpose` to launch an agent with prompt from `agent-prompt.md`
 
 ### Step 4: Consolidate & Generate Report
-After all agents complete, create a comprehensive markdown report saved to `_bmad-output/triage-reports/triage-YYYY-MM-DD.md`
+
+After all agents complete, write a comprehensive markdown report to **`./triage/triage-{datetime}.md`** (e.g. `./triage/triage-2026-06-28-1432.md`), relative to the project root. Create the `triage/` folder if it doesn't exist. `{datetime}` is `YYYY-MM-DD-HHMM`.
+
+Determine whether this is a fresh triage or an update of a prior one (ask if the user hasn't said):
+
+- **Fresh triage** — write a new `./triage/triage-{datetime}.md`.
+- **Update a past triage** — the user points to an existing `./triage/triage-*.md`. **Rename** that file to the current `{datetime}` and rewrite its contents with the refreshed analysis, so the latest triage always carries the present timestamp and no stale-named copies are left behind.
 
 ## Report Format
 
